@@ -38,7 +38,7 @@
         android:padding="10dp"
         android:background="@drawable/edit_text_boarder"
         android:layout_height="wrap_content"
-        android:hint="타이틀을 입력하시오"
+        android:hint="@string/title_hint"
         android:layout_width="match_parent" />
     <TextView
         android:id="@+id/et_day"
@@ -47,7 +47,7 @@
         android:layout_marginTop="20dp"
         android:padding="10dp"
         android:layout_height="wrap_content"
-        android:hint="날짜를 입력하시오"
+        android:hint="@string/date_hint"
         android:background="@drawable/edit_text_boarder"
         android:layout_width="match_parent" />
     <LinearLayout
@@ -67,7 +67,7 @@
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:layout_gravity="center_vertical"
-            android:text="오늘부터 1일 (찡긋 ;-))"/>
+            android:text="@string/first_day"/>
     </LinearLayout>
  <!--   <LinearLayout
         android:layout_height="38dp"

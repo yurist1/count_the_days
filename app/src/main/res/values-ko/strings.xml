@@ -1,0 +1,6 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">count the days</string>
+    <string name="title_hint" tools:ignore="ExtraTranslation">타이틀을 입력하세요</string>
+    <string name="date_hint" tools:ignore="ExtraTranslation">날짜를 입력하세요</string>
+    <string name="first_day" tools:ignore="ExtraTranslation">오늘부터 1일 (찡긋 ;-))</string>
+    </resources>
