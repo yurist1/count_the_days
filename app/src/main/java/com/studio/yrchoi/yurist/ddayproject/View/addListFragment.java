@@ -145,48 +145,48 @@ public class addListFragment extends Fragment {
 
 
     private static void calculateDays(String date, Boolean isStartChecked) {
-        Calendar calendar = Calendar.getInstance();
-        int tYear = calendar.get(Calendar.YEAR);
-        int tMonth = calendar.get(Calendar.MONTH) + 1;
-        int tDay = calendar.get(Calendar.DAY_OF_MONTH);
+        if(date.length()>0){
+            Calendar calendar = Calendar.getInstance();
+            int tYear = calendar.get(Calendar.YEAR);
+            int tMonth = calendar.get(Calendar.MONTH) + 1;
+            int tDay = calendar.get(Calendar.DAY_OF_MONTH);
 
-        String[] ddate = date.replace(".", "-").split("-");
-        int dYear = Integer.parseInt(ddate[0]);
-        int dMonth = Integer.parseInt(ddate[1].trim());
-        int dDay = Integer.parseInt(ddate[2].trim());
-
-
-        Calendar dCalendar = Calendar.getInstance();
-        dCalendar.set(dYear, dMonth - 1, dDay);
-
-        Calendar tCalendar = Calendar.getInstance();
-        tCalendar.set(tYear, tMonth - 1, tDay);
-
-        long t = calendar.getTimeInMillis();                 //오늘 날짜를 밀리타임으로 바꿈
-        long d = dCalendar.getTimeInMillis();              //디데이날짜를 밀리타임으로 바꿈
-        int r = (int) ((t - d) / (24 * 60 * 60 * 1000));                   //디데이 날짜에서 오늘 날짜를 뺀 값을 '일'단위로 바꿈
-
-        int diffDay = (int) r + 1;
+            String[] ddate = date.replace(".", "-").split("-");
+            int dYear = Integer.parseInt(ddate[0]);
+            int dMonth = Integer.parseInt(ddate[1].trim());
+            int dDay = Integer.parseInt(ddate[2].trim());
 
 
-//        result.setText(""+dCalendar.compareTo(tCalendar));
+            Calendar dCalendar = Calendar.getInstance();
+            dCalendar.set(dYear, dMonth - 1, dDay);
 
-        if (diffDay > 0) {
-            if(tCalendar.getTime().getYear() == dCalendar.getTime().getYear() &&
-                    tCalendar.getTime().getMonth() == dCalendar.getTime().getMonth() &&
-                    tCalendar.getTime().getDay() == dCalendar.getTime().getDay()){
-                diffDay = 1;
+            Calendar tCalendar = Calendar.getInstance();
+            tCalendar.set(tYear, tMonth - 1, tDay);
+
+            long t = tCalendar.getTimeInMillis();                 //오늘 날짜를 밀리타임으로 바꿈
+            long d = dCalendar.getTimeInMillis();              //디데이날짜를 밀리타임으로 바꿈
+            int r = (int) ((t - d) / (24 * 60 * 60 * 1000));                   //디데이 날짜에서 오늘 날짜를 뺀 값을 '일'단위로 바꿈
+
+            int diffDay = (int) r + 1;
+
+            if (diffDay > 0) {
+                if(tCalendar.getTime().getYear() == dCalendar.getTime().getYear() &&
+                        tCalendar.getTime().getMonth() == dCalendar.getTime().getMonth() &&
+                        tCalendar.getTime().getDay() == dCalendar.getTime().getDay()){
+                    diffDay = 1;
+                } else {
+                    diffDay = (int) r + 1;
+                }
+                if (isStartChecked == true) {
+                    result.setText("D+" + diffDay);
+                } else {
+                    result.setText("D+" + (diffDay - 1));
+                }
             } else {
-                diffDay = (int) r + 1;
+                result.setText("D" + (diffDay - 1));
             }
-            if (isStartChecked == true) {
-                result.setText("D+" + diffDay);
-            } else {
-                result.setText("D+" + (diffDay - 1));
-            }
-        } else {
-            result.setText("D" + (diffDay - 1));
         }
+
 
     }
 

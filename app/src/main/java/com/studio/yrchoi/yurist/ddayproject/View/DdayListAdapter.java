@@ -77,7 +77,7 @@ public class DdayListAdapter extends RecyclerView.Adapter<DdayListAdapter.DdayVi
         Calendar tCalendar = Calendar.getInstance();
         tCalendar.set(tYear, tMonth - 1, tDay);
 
-        long t = calendar.getTimeInMillis();                 //오늘 날짜를 밀리타임으로 바꿈
+        long t = tCalendar.getTimeInMillis();                 //오늘 날짜를 밀리타임으로 바꿈
         long d = dCalendar.getTimeInMillis();              //디데이날짜를 밀리타임으로 바꿈
         int r = (int) ((t - d) / (24 * 60 * 60 * 1000));                   //디데이 날짜에서 오늘 날짜를 뺀 값을 '일'단위로 바꿈
 
